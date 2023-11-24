@@ -111,3 +111,24 @@ SELECT
  tdept테이블에 자신의 상위 부서 정보를 관리하고 있다.
 이 테이블을 이용하여 부서코드, 부서명, 상위부서코드, 상위부서명을 읽어오는 
 쿼리를 만들어 보자.
+
+SELECT A.dept_code, A.dept_name,A.parent_dept,  b.dept_code, b.dept_name 
+FROM Tdept A, tdept b
+;
+
+
+SELECT A.dept_name 부서명, b.dept_name 상위부서명
+FROM Tdept A, tdept b
+WHERE A.parent_dept = b.dept_code;
+
+SELECT A.dept_code 부서코드,
+             A.dept_name 부서명, 
+             b.dept_code 상위부서코드,
+             b.dept_name 상위부서명
+FROM Tdept A, tdept b
+WHERE A.parent_dept = b.dept_code;
+
+이들 데이터의 작업시간이 짧게 걸리는 시간 순서대로 1부터 15까지의 순위를 
+매겨서 출력하시오.
+
+SELECT * FROM t_worktime
